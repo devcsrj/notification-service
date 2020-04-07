@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: announcer-notifier
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: announcer.outbox
+          group: notifier
+          consumer:
+            partitioned: true
+            maxAttempts: 10
+            backOffInitialInterval: 1000
+            backOffMaxInterval: 10000
+            backOffMultiplier: 2.0
+      kafka:
+        binder:
+          autoAddPartitions: true
+          min-partition-count: 4
+
+announcer:
+  subscription-svc:
+    url: http://localhost:8080

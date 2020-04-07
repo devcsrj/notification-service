@@ -1,0 +1,6 @@
+include "common"
+include "subscription"
+include "notifier"
+
+rootProject.name = 'onboarding'
+

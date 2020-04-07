@@ -1,0 +1,6 @@
+
+dependencies {
+    implementation("io.projectreactor:reactor-core:3.3.4.RELEASE")
+    implementation("org.springframework.data:spring-data-commons:2.2.6.RELEASE")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.10.3")
+}

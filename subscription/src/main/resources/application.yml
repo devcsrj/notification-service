@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: announcer-subscriber
+  cloud:
+    stream:
+      bindings:
+        outbox:
+          destination: announcer.outbox
+          producer:
+            partition-key-expression: headers['recipientId']
+      kafka:
+        binder:
+          autoAddPartitions: true
+          min-partition-count: 4
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/announcer

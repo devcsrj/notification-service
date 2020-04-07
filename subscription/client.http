@@ -1,0 +1,46 @@
+### Subscribe using a callback url
+POST http://localhost:8080/api/subscriptions/amy
+Content-Type: application/json
+
+
+{
+  "callbackUrl": "http://localhost:3000"
+}
+
+### Fetch subscription details of a customer
+GET http://localhost:8080/api/subscriptions/sheldon
+Accept: application/json
+
+### Fetch tokens of a customer
+GET http://localhost:8080/api/users/sheldon/tokens
+Accept: application/json
+
+### Generate token for customer
+POST http://localhost:8080/api/users/sheldon/amy
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Notifications"
+}
+
+### Get notifications for customer
+GET http://localhost:8080/api/notifications?customerId=sheldon
+Accept: application/json
+
+### Send notification
+POST http://localhost:8080/api/notifications/send
+Content-Type: application/json
+
+{
+  "customerId": "sheldon",
+  "type": "CREDIT",
+  "payload": {
+    "account": "100b-bbbb",
+    "amount": 1000,
+    "currency": "USD",
+    "message": "Your account has been successfully credited 1000 USD"
+  }
+}
+
+###
